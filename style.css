@@ -6,6 +6,7 @@
 	align-items: center;
 	flex-direction: column;
 	background: url(oboi_romash.png) no-repeat, yellow;
+	background-size:100%;
 }
 
 .pres {
