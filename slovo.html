@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Угадай слово</title>
+
+    <link rel="stylesheet" href="slovo.css" />
+    <script>
+        var haslo = "Поздравляю тебя Ты большая умничка";
+        haslo = haslo.toUpperCase();
+
+        var dlugosc = haslo.length;
+        var ile_skuch = 0;
+
+        var haslo1 = "";
+
+        for (i = 0; i < dlugosc; i++) {
+            if (haslo.charAt(i) == " ") haslo1 = haslo1 + " ";
+            else haslo1 = haslo1 + "-";
+        }
+
+        function wypisz_haslo() {
+            document.getElementById("plansza").innerHTML = haslo1;
+        }
+        window.onload = start;
+
+        var litery = new Array(26);
+        litery[0] = "А";
+        litery[1] = "Б";
+        litery[2] = "В";
+        litery[3] = "Г";
+        litery[4] = "Д";
+        litery[5] = "Е";
+        litery[6] = "Ж";
+        litery[7] = "З";
+        litery[8] = "И";
+        litery[9] = "Й";
+        litery[10] = "К";
+        litery[11] = "Л";
+        litery[12] = "М";
+        litery[13] = "Н";
+        litery[14] = "О";
+        litery[15] = "П";
+        litery[16] = "Р";
+        litery[17] = "С";
+        litery[18] = "Т";
+        litery[19] = "У";
+        litery[20] = "Ф";
+        litery[21] = "Х";
+        litery[22] = "Ц";
+        litery[23] = "Ч";
+        litery[24] = "Ш";
+        litery[25] = "Щ";
+        litery[26] = "Ъ";
+        litery[27] = "Ы";
+        litery[28] = "Ь";
+        litery[29] = "Э";
+        litery[30] = "Ю";
+        litery[31] = "Я";
+        function start() {
+            var tresc_diva = "";
+
+            for (i = 0; i <= 31; i++) {
+                var element = "lit" + i;
+                tresc_diva = tresc_diva + '<div class="litera" onclick="sprawdz(' + i + ')" id="' + element + '">' + litery[i] + '</div>';
+                if ((i + 1) % 8 === 0) tresc_diva = tresc_diva + '<div style="clear:both;"></div>'
+            }
+
+            document.getElementById("alfabet").innerHTML = tresc_diva;
+
+
+            wypisz_haslo();
+        }
+
+        String.prototype.ustawZnak = function (miejsce, znak) {
+            if (miejsce > this.length - 1) return this.toString();
+            else return this.substr(0, miejsce) + znak + this.substr(miejsce + 1);
+        }
+
+        function next() { /* Тут менять ссылочку*/
+            document.location = "loading3.html";
+        }
+
+        function sprawdz(nr) {
+            var trafiona = false;
+
+
+            for (i = 0; i < dlugosc; i++) {
+                if (haslo.charAt(i) == litery[nr]) {
+
+                    haslo1 = haslo1.ustawZnak(i, litery[nr]);
+                    trafiona = true;
+                }
+            }
+
+            if (trafiona === true) {
+                var element = "lit" + nr;
+                document.getElementById(element).style.background = "#003300";
+                document.getElementById(element).style.color = "#00C000";
+                document.getElementById(element).style.border = "3px solid #00C000";
+                document.getElementById(element).style.cursor = "default";
+
+                wypisz_haslo()
+            }
+            else {
+                var element = "lit" + nr;
+                document.getElementById(element).style.background = "#330000";
+                document.getElementById(element).style.color = "#C00000";
+                document.getElementById(element).style.border = "3px solid #C00000";
+                document.getElementById(element).style.cursor = "default";
+
+                document.getElementById(element).setAttribute("onclick", ";"); 
+                ile_skuch++;
+                var obraz = "img/s" + ile_skuch + ".jpg";
+                document.getElementById("szubienica").innerHTML = '<img src="' + obraz + '" alt="" />';
+
+            }
+            if (haslo == haslo1)
+                document.getElementById("alfabet").innerHTML = "Поздравляю тебя еще раз " + 
+                    '<br /><br /><span class="reset" onclick="next()">Продолжить</span>';
+            
+            
+            //przegrana
+            if (ile_skuch >= 2)
+                document.getElementById("alfabet").innerHTML = "Ай ай ай<br /> Не вышло :(" + 
+                    '<br /><br /><span class="reset" onclick="location.reload()">Повторить</span>';
+        }
+    </script>
+</head>
+<body>
+
+    <div id="pojemnik">
+        <div id="plansza"></div>
+        <div id="szubienica">
+            <img src="img/s0.jpg" alt="" />
+        </div>
+        <div id="alfabet"></div>
+        <div style="clear:both;"></div>
+        <div>
+            <img id="sh1" src="shariki1.png" />
+            <img id="sh2" src="shariki2.png" />
+            <img id="gir" src="gir.png"/>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='style_prepod.css'>
+    <title>Ударь препода</title>
+</head>
+
+<body id="body" class="default_cursor">
+    <div>
+
+        <img id="fon" src="auditor.png" />
+        <img id="stol" src="stol.png" />
+        <img id="doska" src="doska.png" />
+        <img id="door" src="door.png" />
+        <div id="st">
+
+        </div>
+
+    </div>
+    <div class="image">
+        <img src="normprep.png" id="fl-svg" class="clock-adaptive">
+
+    </div>
+
+    <script>
+        document.addEventListener("click", function () {
+            document.getElementById("body").classList.toggle("changed_cursor");
+        });
+    </script>
+    <script>
+
+        var i = 0;
+        var click = 0;
+        var image = document.getElementById("fl-svg");
+
+        var imgs = new Array('normprep.png', 'normprep.png', 'normprep.png', 'sadprep.png', 'sadprep.png', 'sadprep.png', 'sadprep.png', 'sadprep.png', 'cryprep.png', 'cryprep.png', 'cryprep.png', 'cryprep.png', 'cryprep.png', 'cryprep.png', 'cryprep.png', 'cryprep.png', 'cryprep.png', 'cryprep.png', 'cryprep.png', 'cryprep.png', 'cryprep.png', 'cryprep.png', 'cryprep.png', 'cryprep.png', 'cryprep.png');
+
+        image.addEventListener('click', imgsrc);
+        function next() {
+            document.location = "loading4.html";
+        }
+        function imgsrc() {
+
+            image.src = imgs[i];
+            i++;
+            if (imgs[i] === undefined) {
+                i = 0;
+
+            }
+            click += 1;
+            if (click == 25) {
+                document.getElementById("st").innerHTML = "Хватит бить препода пожалуйста" ;
+              
+            }
+            if (click == 40) {
+                document.getElementById("st").innerHTML = "Хватит бить препода пожалуйста" + '<br /><span class="next" onclick="next()">Продолжить</span>';
+            }
+        }
+    </script>
+    
+
+
+</body>
+</html>

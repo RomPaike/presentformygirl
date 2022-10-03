@@ -1,0 +1,13 @@
+body{
+	margin:0px;
+	width:100%;
+	background:#000;
+	overflow:hidden;
+}
+#text{
+	position:fixed;
+	top:40px;
+	left:500px;
+	color:white;
+	font-family:RomanS;
+}

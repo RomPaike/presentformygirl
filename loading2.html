@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+
+    <title>Загрузка</title>
+    <style>
+        body {
+            background: url(load2.gif);
+            background-size: 70%;
+            background-position-x:center;
+        }
+
+        h1 {
+            position: absolute;
+            z-index: 1;
+            font-family: RomanT;
+            top: 100px;
+            left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Пробуем обновить страничку</h1>
+
+    <div id="link"></div>
+    <script type="text/javascript">
+        var obj = document.getElementById('link');
+        var timerFIG = 3; // Время в секундах, через которое появляется кнопка
+        var timer = setInterval("startTimer()", 1000);
+        function startTimer() {
+            if (timerFIG !== 1) {
+                timerFIG--;
+            } else {
+                clearInterval(timer);
+                document.location = "slovo.html"; // кнопка
+            }
+        }
+    </script>
+</body>
+</html>

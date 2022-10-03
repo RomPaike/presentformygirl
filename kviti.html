@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Второй вопрос</title>
+    <link rel='stylesheet' href='style_kviti.css'>
+</head>
+<body>
+    <h1 class="pres">С&nbspднем&nbspрождения</h1>
+
+    <div class="spis">
+        <h2 id="naz">Какие у тебя любимые цветы?</h2>
+        <p>1. Хризантемы</p>
+        <p>2. Тюльпаны</p>
+        <p>3. Розы</p>
+        <p>4. Орхидеи</p>
+
+
+    </div>
+
+
+
+
+
+
+    <!--Правильный вариант-->
+    <div class="btnn">
+        <button type="button" onclick="showMenu()">Выбрать</button>
+
+    </div>
+    <div id="popup">
+        <i class="fa fa-check"></i>
+        <h1>Умничка</h1>
+        <p>Ты ответила правильно на вопрос! </p>
+
+        <button type="button" onclick="hideMenu()">Продолжить</button>
+    </div>
+
+    <!--Ошибочный вариант 1 -->
+    <div class="fr">
+        <button type="button" onclick="showMinu()">Выбрать</button>
+    </div>
+    <div id="oyy">
+        <i class="fa fa-check"></i>
+        <h1>Уууупс!</h1>
+        <p>Кажись ты ошиблась </p>
+
+        <button type="button" onclick="nothideMinu()">Продолжить</button>
+    </div>
+
+    <!--Ошибочный вариант 2 -->
+    <div class="sc">
+        <button type="button" onclick="showMinu()">Выбрать</button>
+    </div>
+    <div id="oyy">
+        <i class="fa fa-check"></i>
+        <h1>Уууупс!</h1>
+        <p>Кажись ты ошиблась </p>
+
+        <button type="button" onclick="nothideMinu()">Продолжить</button>
+    </div>
+
+
+    <div class="th">
+        <button type="button" onclick="showMini()">Выбрать</button>
+    </div>
+    <div id="fu">
+        <i class="fa fa-check"></i>
+        <h1>Нууууу</h1>
+        <p>Ну ты же должна знать</p>
+
+        <button type="button" onclick="nothideMinu()">Продолжить</button>
+    </div>
+
+
+    <script>
+        var menu = document.getElementById("popup");
+        var minu = document.getElementById("oyy");
+        var mini = document.getElementById("fu");
+
+        function showMenu() {
+            menu.style.top = "20vh"
+            menu.style.webkitTransform = "scale(1,1)"
+        }
+
+        function showMini() {
+            mini.style.top = "20vh"
+            mini.style.webkitTransform = "scale(1,1)"
+        }
+
+        function hideMenu() {
+            menu.style.top = "-24vh"
+            menu.style.webkitTransform = "scale(.1,.1)"
+            document.location = 'loading5.html';
+        }
+        function showMinu() {
+            minu.style.top = "20vh"
+            minu.style.webkitTransform = "scale(1,1)"
+        }
+        function nothideMinu() {
+            minu.style.top = "-24vh"
+            minu.style.webkitTransform = "scale(.1,.1)"
+            document.location = 'kviti.html';
+        }
+    </script>
+
+
+
+
+
+
+</body>
+</html>

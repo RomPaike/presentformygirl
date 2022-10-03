@@ -1,0 +1,11 @@
+body {
+	background: url(animation.gif) no-repeat;
+	background-size:100%;
+}
+h1 {
+	position: absolute;
+	z-index: 1;
+	font-family:RomanT;
+	top:100px;
+	left:50px;
+}

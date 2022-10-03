@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+
+    <title>Загрузка</title>
+    <style>
+        body {
+            background: url(load4.gif);
+            background-size:50%;
+        }
+
+        h1 {
+            position: absolute;
+            z-index: 1;
+            font-family: RomanT;
+            top: 30px;
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>♥Пару секунд, просто подождать♥</h1>
+
+    <div id="link"></div>
+    <script type="text/javascript">
+        var obj = document.getElementById('link');
+        var timerFIG = 3; // Время в секундах, через которое появляется кнопка
+        var timer = setInterval("startTimer()", 1000);
+        function startTimer() {
+            if (timerFIG !== 1) {
+                timerFIG--;
+            } else {
+                clearInterval(timer);
+                document.location = "kviti.html"; // кнопка
+            }
+        }
+    </script>
+</body>
+</html>
